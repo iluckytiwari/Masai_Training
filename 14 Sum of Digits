@@ -1,0 +1,21 @@
+function sumOfDigitSums(arr) {
+    function digitSum(num) {
+        let sum = 0;
+        while (num > 0) {
+            sum += num % 10; // Extract the last digit and add to sum
+            num = Math.floor(num / 10); // Remove the last digit
+        }
+        return sum;
+    }
+
+    let totalSum = 0;
+    for (let num of arr) {
+        totalSum += digitSum(num);
+    }
+
+    return totalSum;
+}
+
+// Example test cases
+console.log(sumOfDigitSums([12, 14, 16, 17, 29])); // Output: 34
+console.log(sumOfDigitSums([1, 2, 3, 4, 5, 51])); // Output: 21
